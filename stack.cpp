@@ -15,6 +15,10 @@ public:
             arr[i] = 0;
         }
     }
+    void push(int n)
+    {
+
+    }
 };
 
 int main()
