@@ -152,5 +152,28 @@ void faltu(T arg, const hello &...rest)
 int main()
 {
     optimize();
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+        cin >> v[i];
+    for (int i = 0; i < n - 1; i++)
+    {
+        int curr_min_idx = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (v[curr_min_idx] > v[j])
+            {
+                curr_min_idx = j;
+            }
+        }
+        swap(v[curr_min_idx], v[i]);
+    }
+    cout << "Selection Sort\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << v[i] << " ";
+    }
+
     return 0;
 }
