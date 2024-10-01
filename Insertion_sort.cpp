@@ -151,7 +151,7 @@ void faltu(T arg, const hello &...rest)
 
 int main()
 {
-    optimize();
+    //optimize();
     int s;cin>>s;
     vector<int>vc(s);
     for(int i=0;i<s;i++)cin>>vc[i];
@@ -166,7 +166,7 @@ int main()
         }
         vc[j+1]=target_val;
     }
-    cout<<"Insertion Sort\n";
+    cout<<"Insertion Sort"<<endl;
     for(auto i:vc)
     cout<<i<<" ";
     
