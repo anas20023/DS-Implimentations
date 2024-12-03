@@ -1,77 +1,55 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Node
-{
-public:
-    int value;
-    Node *next;
-    Node()
-    {
-        value = 0;
-        next = nullptr;
+class Node{
+    public:
+    int val; Node* next;
+    Node(){
+        val=0;next=nullptr;
     }
-    Node(int x)
-    {
-        this->value = x;
-        this->next = nullptr;
+    Node(int x){
+        val=x;next=nullptr;
     }
 };
-class linked_list
-{
-    Node *head;
-
-public:
-    linked_list()
-    {
-        head = nullptr;
+class Linked_List{
+    public:
+    Node * head;
+    Linked_List(){
+        head=nullptr;
     }
-    void insertAtBegin(int n)
-    {
-        Node *temp = new Node(n);
-        if (head == nullptr)
-        {
-            head = temp;
-            temp->next = nullptr;
+    void insertAtHead(int x){
+        Node* temp=new Node(x);
+        temp->next=head;
+        head=temp;
+    }
+    void insertAtback(int x){
+        Node* temp=new Node(x);
+        if(head==nullptr){
+            head=temp;
             return;
         }
-        temp->next = head;
-        head = temp;
+        Node* lastNode=head;
+        while(lastNode->next!=nullptr){
+            lastNode=lastNode->next;
+        }
+        lastNode->next=temp;
     }
-    void deleteEnd()
-    {
-        Node *temp = head;
-        while (temp->next->next != nullptr)
+    void showList(){
+        Node* temp=head;
+        while (temp!=nullptr)
         {
-            temp = temp->next;
-        }
-        temp->next = nullptr;
-    }
-    void Print()
-    {
-        Node *temp = head;
-        if (temp == nullptr)
-        {
-            cout << "List is Empty\n";
-        }
-        while (temp != nullptr)
-        {
-            cout << temp->value << " ";
-            temp = temp->next;
-        }
-        cout << endl;
+            cout<<temp->val<<" ";
+            temp=temp->next;
+        }  
     }
 };
-
-int main()
-{
-    linked_list lst;
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+int main() {
+    Linked_List list;
+    for (int i = 1; i <=5; i++)
     {
-        lst.insertAtBegin(i);
+        if(i%2)list.insertAtHead(i);
+        else list.insertAtback(i);
     }
-    lst.deleteEnd();
-    lst.Print();
+    list.showList();
+    return 0;
 }
