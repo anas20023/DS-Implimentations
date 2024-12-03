@@ -18,20 +18,17 @@ int main()
     cin >> q;
     while (q--)
     {
-        // Time Complexity -> O(1) for Each Query for find the weight of an edge connected to v1 and v2 vertices.
+        // Time Complexity -> O(e)[Worst Case] for Each Query.
         int v1, v2;
         cin >> v1 >> v2;
-        for (int i = 0; i < e; i++)
+        bool flag=false;
+        for (int i = 0; i < list_graph[v1].size(); i++)
         {
-            if (list_graph[v1] == 1)
-            {
-                cout << "Weight of the Edge Connected to Vertices " << v1 << " and " << v2 << " is " << mgraphh[v1][v2] << endl;
-            }
-            else
-            {
-                cout << "There is no Edge Connected to Vertices " << v1 << " and " << v2 << endl;
-            }
+            //    cout<<list_graph[v1][i]<<" ";
+            if(list_graph[v1][i]==v2) {flag=true;break;}
         }
+        if(flag) cout<<v1<<" and "<<v2 <<" Are Connected"<<endl;
+        else cout<<v1<<" and "<<v2 <<" Are Not Connected"<<endl;
     }
 
     return 0;
