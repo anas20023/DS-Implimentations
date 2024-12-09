@@ -92,9 +92,26 @@ void postorder(node* root) {
     postorder(root->right);
     cout << root->data << " ";
 }
-
+bool searchinBST(node* root,int x){
+    if(root==nullptr){
+        return false;
+    }
+    if (root->data == x) {
+        return true;
+    }
+    if(root->data>x){
+        return searchinBST(root->left,x);
+    }
+    else {
+        return searchinBST(root->right,x);
+    }
+}
 int main() {
     node* root = Takeinput();
-    postorder(root);
+    //postorder(root);
+    //cout<<"Enter Element to Search:";
+    int x;cin>>x;
+    if(searchinBST(root,x))cout<<"Present\n";
+    else cout<<"Not Present\n";
     return 0;
 }
