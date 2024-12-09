@@ -65,7 +65,6 @@ void levelOrderTraversal(node* root) {
         }
     }
 }
-
 void inorder(node* root) {
     if (root == nullptr) {
         return;
@@ -74,7 +73,6 @@ void inorder(node* root) {
     cout << root->data << " ";
     inorder(root->right);
 }
-
 void preorder(node* root) {
     if (root == nullptr) {
         return;
@@ -83,7 +81,6 @@ void preorder(node* root) {
     preorder(root->left);
     preorder(root->right);
 }
-
 void postorder(node* root) {
     if (root == nullptr) {
         return;
@@ -105,6 +102,34 @@ bool searchinBST(node* root,int x){
     else {
         return searchinBST(root->right,x);
     }
+}
+node* deleteFromBST(node* root, int x) {
+    if (root == nullptr) {
+        return root;
+    }
+
+    if (x < root->data) {
+        root->left = deleteFromBST(root->left, x);
+    } else if (x > root->data) {
+        root->right = deleteFromBST(root->right, x);
+    } else {
+        if (root->left == nullptr) {
+            node* temp = root->right;
+            delete root;
+            return temp;
+        } else if (root->right == nullptr) {
+            node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        node* temp = root->right;
+        while (temp->left != nullptr) {
+            temp = temp->left;
+        }
+        root->data = temp->data;
+        root->right = deleteFromBST(root->right, temp->data);
+    }
+    return root;
 }
 int main() {
     node* root = Takeinput();
