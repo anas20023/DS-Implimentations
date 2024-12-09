@@ -1,12 +1,3 @@
-////////////////              ANAS IBN BELAL            /////////////////
-//                          Template   Code                           ||
-//                                                                    ||
-//                                                                    ||
-//      BANGLADESH  UNIVERSITY OF BUSINESS AND TECHNOLOGY             ||
-//                          INTAKE 52                                 ||
-//                      DEPARTMENT OF CSE                             ||
-//                                                                    ||
-//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #include <bits/stdc++.h>
 using namespace std;
 
