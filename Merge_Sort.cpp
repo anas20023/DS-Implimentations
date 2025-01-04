@@ -169,12 +169,14 @@ void MergeArr(int l,int r){
         ans[j]=v[i1];
         i1++;
         j++;
+        cmp++;
     }
     while (i2<=r)
     {
         ans[j]=v[i2];
         i2++;
         j++;
+        cmp++;
     }
     for (int j = l; j <=r; j++)
     {
@@ -210,7 +212,8 @@ int main()
        mergesort(0,n-1);
        for (int i = 0; i < n; i++)
        {
-         cout<<v[i]<<" ";
+        cout<<v[i];
+         if(i!=n-1)cout<<" ";
        }
        cout<<"\n"<<cmp<<endl;
        
