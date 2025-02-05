@@ -1,5 +1,5 @@
-//onAC(ALPHA) =>{Target Next ICPC ^-^}           
-//  ^-^      ^-^       ^-^    ^-^     ^-^  
+//onAC(ALPHA) =>{Target Next ICPC ^-^}
+//  ^-^      ^-^       ^-^    ^-^     ^-^
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -144,55 +144,27 @@ void faltu(T arg, const hello &...rest)
     cerr << arg << ' ';
     faltu(rest...);
 }
-int n,cmp=0;
-vector<int>v(500005),ans(500005);
-
-void MergeArr(int l,int r){
-    int md=mid(l,r);
-    //cout<<l<<" "<<r<<endl;
-    int i1=l;
-    int i2=md+1,j=l;
-    while (i1<=md && i2<=r)
+string decimalToBinayString(ll a)
+{
+    string bin = "";
+    ll mask = 1;
+    for(ll i = 0; i < 63; i++)
     {
-        if(v[i1]<v[i2]){ 
-            ans[j]=v[i1];
-            i1++;
-        }
-        else{
-            ans[j]=v[i2];
-            i2++;
-        }
-        j++;
-        cmp++;
-    } 
-    while (i1<=md)
-    {
-        ans[j]=v[i1];
-        i1++;
-        j++;
-        cmp++;
+        if((mask&a) >= 1)
+            bin = "1"+bin;
+        else
+            bin = "0"+bin;
+        mask<<=1;
     }
-    while (i2<=r)
-    {
-        ans[j]=v[i2];
-        i2++;
-        j++;
-        cmp++;
-    }
-    for (int j = l; j <=r; j++)
-    {
-        v[j]=ans[j];
-    }
-    
-    
+    //cout<<binary<<endl;
+    return bin;
 }
-void mergesort(int l,int r){
-    if(l>=r) return;
-    int m=mid(l,r);
-   // cout<<l<<" "<<r<<endl;
-    mergesort(l,m);
-    mergesort(m+1,r);
-    MergeArr(l,r);
+int n;
+vector<int>v;
+bool isOK(int mid)
+{
+    if(v[mid]<1) return 1;
+    else return 0;
 }
 int main()
 {
@@ -201,23 +173,17 @@ int main()
    // cin >> tc;
     while (tc--)
     {
-       cin>>n;
-       for(int i=0;i<n;i++) cin>>v[i];
-    //    int tm,n=0;
-    //    while (cin>>tm)
-    //    {
-    //         v[n]=tm;
-    //         n++;
-    //    }
-       
-       mergesort(0,n-1);
-       for (int i = 0; i < n; i++)
-       {
-        cout<<v[i];
-         if(i!=n-1)cout<<" ";
-       }
-       cout<<"\n"<<cmp<<endl;
-       
+        cin>>n;
+        v.resize(n);
+        for(int i=0;i<n;i++) cin>>v[i];
+        int l=0,r=n;
+        while(l<r)
+        {
+            int mid=(l+r)/2;
+            if(isOK(mid)) l=mid+1;
+            else r=mid;
+        }
+        cout<<l<<endl;
     }
 
     return 0;
