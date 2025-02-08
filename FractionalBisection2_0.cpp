@@ -2,7 +2,7 @@
 using namespace std;
 int n;
 bool isOK(double x){
-    if(x*x*x<n) return 0;
+    if((x*x + 5*x)<20) return 0;
     else return 1;
 }
 int main()
