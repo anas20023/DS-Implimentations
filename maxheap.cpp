@@ -4,10 +4,10 @@ using namespace std;
 void BuildMaxHeap(vector<int>&v,int n, int i){
     int large=i;
     int l=2*i,r=2*i+1;
-    if(l<=n && v[l]<v[large]){
+    if(l<=n && v[l]>v[large]){
         large=l;
     }
-    if(r<=n &&v[r]<v[large]){
+    if(r<=n &&v[r]>v[large]){
         large=r;
     }
     if(large!=i){
