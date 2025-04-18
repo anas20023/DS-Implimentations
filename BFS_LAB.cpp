@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N=1e3+10;
-int graph[N][N];
+int graph[N][N]; 
 vector<bool>vis(N,false);
 int v,e;
 int BFS(int vertx){
