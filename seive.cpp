@@ -12,6 +12,14 @@ void SieveOfEratosthenes(int n)
 
 
         if (prime[p] == true) {
+<<<<<<< HEAD
+=======
+            
+            // Update all multiples of p greater than or
+            // equal to the square of it numbers which are
+            // multiple of p and are less than p^2 are
+            // already been marked.
+>>>>>>> 72993c6 (Add Sieve of Eratosthenes implementation for prime number generation)
             for (int i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
