@@ -7,7 +7,6 @@ void SieveOfEratosthenes(int n)
     // all entries it as true. A value in prime[i] will
     // finally be false if i is Not a prime, else true.
     vector<bool> prime(n + 1, true);
- // rebasing to main
     for (int p = 2; p * p <= n; p++) {
 
 
